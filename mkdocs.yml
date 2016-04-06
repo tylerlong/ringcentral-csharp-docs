@@ -7,3 +7,5 @@ pages:
 # Overview:
 - ['index.md', 'Overview', 'RingCentral C# SDK']
 - ['requirements.md', 'Overview', 'System Requirements']
+# Tutorials
+- ['installation.md', 'Tutorials', 'Installation']
