@@ -19,3 +19,15 @@ Choose iOS -> App -> Single View App, click Next
 
 Here we take an iOS app for example.
 The method demonstrated here should also work for Android apps and Mac apps.
+
+Name the app as `MyTestApp` , keep other settings as default, click Next
+
+![Create Test App](screenshots/create-test-app-1.png)
+
+Keep all the settings as default, click Create
+
+![Create Test App](screenshots/create-test-app-2.png)
+
+Test app created
+
+![Test App Created](screenshots/test-app-created.png)
