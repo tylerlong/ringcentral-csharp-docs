@@ -43,3 +43,24 @@ In develop branch, we only maintain the PCL project, which means all the target 
 ### Here we talk about the develop branch
 
 Because the develop branch installation process differs a lot from the master branch, and develop branch is the future of the C# SDK, here we only talk about the [develop branch](https://github.com/ringcentral/ringcentral-csharp/tree/develop).
+
+
+## NuGet
+
+The binary file of RingCentral C# SDK is distributed via [NuGet](http://www.nuget.org/packages/RingCentralSDK).
+
+To install the latest stable version:
+
+```
+Install-Package RingCentralSDK
+```
+
+This will download the Ring Central Portable Class Library into your project as well as the PubNub dependencies.
+
+
+To install the prerelease version:
+```
+Install-Package RingCentralSDK -Pre
+```
+
+This will download the prerelease version which is based on code from develop branch.
