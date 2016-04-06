@@ -8,4 +8,5 @@ pages:
 - ['index.md', 'Overview', 'RingCentral SDK for C#']
 
 # Prerequisites:
-- []
+- ['prerequisites/mac.md', 'Prerequisites', 'Mac OS X']
+- ['prerequisites/windows.md', 'Prerequisites', 'Windows']
