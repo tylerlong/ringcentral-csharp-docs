@@ -1,1 +1,1 @@
-# RingCentral SDK for C# Documentation
+# RingCentral C# SDK Documentation

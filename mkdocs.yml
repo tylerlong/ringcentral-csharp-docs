@@ -1,11 +1,11 @@
-site_name: RingCentral SDK for C#
+site_name: RingCentral C# SDK
 site_url: https://github.com/tylerlong/ringcentral-csharp-docs
 repo_url: https://github.com/tylerlong/ringcentral-csharp-docs.git
 docs_dir: docs
 theme: readthedocs
 pages:
 # Overview:
-- ['index.md', 'Overview', 'RingCentral SDK for C#']
+- ['index.md', 'Overview', 'RingCentral C# SDK']
 
 # Prerequisites:
 - ['prerequisites/mac.md', 'Prerequisites', 'Mac OS X']
