@@ -47,7 +47,7 @@ Because the develop branch installation process differs a lot from the master br
 
 ## NuGet
 
-The binary file of RingCentral C# SDK is distributed via [NuGet](http://www.nuget.org/packages/RingCentralSDK).
+The binary files of RingCentral C# SDK are distributed via [NuGet](http://www.nuget.org/packages/RingCentralSDK).
 
 To install the latest stable version:
 
@@ -63,4 +63,4 @@ To install the prerelease version:
 Install-Package RingCentralSDK -Pre
 ```
 
-This will download the prerelease version which is based on code from develop branch.
+This will download the prerelease version which is based on develop branch.
