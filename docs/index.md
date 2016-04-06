@@ -28,7 +28,7 @@ The SDKs are built on our APIs which handle all communication with external prog
 
 ## RingCentral C# SDK
 
-The SDK is available under an MIT-style license. The source code is hosted on GitHub: https://github.com/ringcentral/ringcentral-csharp
+The SDK is available under an MIT-style license. The source code is hosted on GitHub: [https://github.com/ringcentral/ringcentral-csharp](https://github.com/ringcentral/ringcentral-csharp).
 
 
 ### We are making incompatible API changes
