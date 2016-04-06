@@ -42,4 +42,4 @@ In develop branch, we only maintain the PCL project, which means all the target 
 
 ### Here we talk about the develop branch
 
-Because the develop branch installation process differs a lot from the master branch, and develop branch is the future of the C# SDK, here we only talk about the develop branch.
+Because the develop branch installation process differs a lot from the master branch, and develop branch is the future of the C# SDK, here we only talk about the [develop branch](https://github.com/ringcentral/ringcentral-csharp/tree/develop).
