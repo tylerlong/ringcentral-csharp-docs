@@ -1,4 +1,4 @@
-# Install RingCentral C# SDL
+# Install RingCentral C# SDK
 
 This tutorial demonstrates how to create a new project and install the latest RingCentral C# SDK.
 
@@ -7,8 +7,12 @@ This tutorial demonstrates how to create a new project and install the latest Ri
 
 Launch Xamarin Studio
 
-![Xamarin Studio](installation/xamarin-studio.png)
+![Xamarin Studio](screenshots/xamarin-studio.png)
 
-Press keyboard shortcut: `Shift + CMD + N`:
+Press keyboard shortcut: `Shift + CMD + N` to create a new solution:
 
-![New Solution](installation/new-solution.png)
+![New Solution](screenshots/new-solution.png)
+
+Choose iOS -> App -> Single View App, click Next
+
+![iOS Single View App](ios-single-view-app.png)
