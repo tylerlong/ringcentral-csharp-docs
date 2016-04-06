@@ -6,7 +6,4 @@ theme: readthedocs
 pages:
 # Overview:
 - ['index.md', 'Overview', 'RingCentral C# SDK']
-
-# Prerequisites:
-- ['prerequisites/mac.md', 'Prerequisites', 'Mac OS X']
-- ['prerequisites/windows.md', 'Prerequisites', 'Windows']
+- ['requirements.md', 'Overview', 'System Requirements']
