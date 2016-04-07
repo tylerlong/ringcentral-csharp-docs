@@ -77,3 +77,13 @@ namespace MyTestApp
 	}
 }
 ```
+
+Press `CMD - Enter` to run the app. A simulator will be started. Wait until the app is up and running, check "Application Output" window for text "App is authenticated".
+
+![App Authenticated](screenshots/app-authenticated.png)
+
+The app itself in simulator is just a blank window because we didn't create any UI elements.
+
+If the Application Output window is not already open, please click the following in Xamarin Studio's menu: "View -> Pads -> Application Output".
+
+Please confirm that "App is authenticated" is printed to the Application Output window, which means that we have done the authentication correctly and successfully.
