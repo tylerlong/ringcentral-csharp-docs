@@ -7,6 +7,6 @@ pages:
 # Overview:
 - ['index.md', 'Overview', 'RingCentral C# SDK']
 - ['requirements.md', 'Overview', 'System Requirements']
-# Tutorials
-- ['installation.md', 'Tutorials', 'Installation']
-- ['authentication.md', 'Tutorials', 'Authentication']
+# Xamarin Studio on Mac OS X
+- ['installation.md', 'Xamarin Studio on Mac OS X', 'Installation']
+- ['authentication.md', 'Xamarin Studio on Mac OS X', 'Authentication']
