@@ -29,3 +29,17 @@ In this tutorial, we are going to create some UI elements.
 Select "Main.storyboard", right click and choose "Open With -> XCode Interface Builder"
 
 ![Open Interface Builder](/screenshots/open-interface-builder.png)
+
+Create the following UI in XCode Interface Builder.
+
+![Send Message UI](/screenshots/send-message-ui.png)
+
+How to build UI with XCode Interface Builder is out of the scope of this tutorial. There are some great videos about XCode Interface Builder from [Youtube](https://www.youtube.com/results?search_query=xcode+interface+builder).
+
+Still in XCode Interface Builder, Create outlets for the two text fields, create an action for the button. Please name the two outlets as `receiverNumberTextField` and `messageTextField`. Please name the action as `SendMessage`. The resulting Objective-C code should be like following:
+
+![Outlets & Action](screenshots/send-message-oc.png)
+
+How to create outlets and actions in XCode Interface Builder is out of the scope of this tutorial. There are some wonderful videos from [Youtube](https://www.youtube.com/results?search_query=xcode+outlets+actions).
+
+Now go back to Xamarin Studio.
