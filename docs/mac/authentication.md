@@ -16,9 +16,7 @@ Open "ViewController.cs", Edit it and make the code like this:
 
 ```csharp
 using System;
-
 using RingCentral.SDK;
-
 using UIKit;
 
 namespace MyTestApp
@@ -80,6 +78,21 @@ namespace MyTestApp
 ```
 
 Please do replace `appKey`, `appSecret`, `username`, `extension` and `password` with real values.
+
+Code above looks a little long. Most of them are just boilerplate code. Which we shoud pay attention to is:
+
+```csharp
+if (platform == null) {
+	var sdk = new SDK (appKey, appSecret, sandboxServer, "MyTestApp", "1.0.0");
+	platform = sdk.GetPlatform ();
+}
+if (!platform.IsAuthorized ()) {
+	platform.Authorize (username, extension, password, true);
+}
+```
+
+The first `if` statement create the SDK object and get the platform singleton.
+The second `if` statement does the authentication.
 
 Press `CMD - Enter` to run the app. A simulator will be started. Wait until the app is up and running, check "Application Output" window for text "App is authenticated".
 
