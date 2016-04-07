@@ -59,6 +59,8 @@ Press `CMD - B` to build the project.
 
 "Build successful." means RingCentral SDK has been installed successfully.
 
+Download the [source code](https://github.com/tylerlong/ringcentral-csharp-tutorials/tree/master/mac/installation) for this tutorial.
+
 
 ## Visual Studio for Windows
 
