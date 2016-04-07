@@ -9,3 +9,4 @@ pages:
 - ['requirements.md', 'Overview', 'System Requirements']
 # Tutorials
 - ['installation.md', 'Tutorials', 'Installation']
+- ['authentication.md', 'Tutorials', 'Authentication']
