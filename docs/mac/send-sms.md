@@ -103,6 +103,34 @@ var requestBody = new Dictionary<string, dynamic> {
 
 Statement above creates the request body. I know you might be wondering: what's the required data structure for request body? Where is the specification?
 
-The specification could be found here: https://developer.ringcentral.com/api-explorer/latest/index.html open the web page, click "Messages" followed by click "Create SMS Message". You will find the model schema for the JSON body right there:
+The specification could be found in the [API Explorer](https://developer.ringcentral.com/api-explorer/latest/index.html). open the web page, click "Messages" followed by click "Create SMS Message". You will find the model schema for the JSON body right there:
 
 ![SMS JSON body schema](/screenshots/sms-schema.png)
+
+```csharp
+var jsonBody = Newtonsoft.Json.JsonConvert.SerializeObject (requestBody);
+```
+
+Statement above converts the C# object into json string. This is because the api server only accepts json data as request body.
+
+```csharp
+var request = new RingCentral.SDK.Http.Request ("/restapi/v1.0/account/~/extension/~/sms", jsonBody);
+var response = platform.Post (request);
+Console.WriteLine ("Sms sent, status code is: " + response.GetStatus ());
+```
+
+Code above are quite self-explanatory: the first statement creates the request object, the second statement post the request to server and get the response object, the final object just prints the status code.
+
+OK, everything is ready now, let's run the app!
+
+![Run Send SMS](/screenshots/run-send-sms.png)
+
+Enter the phone number, enter the greetings, press the "Send Message" button. The go back to Xamarin Studio and look at the "Application Output" windows for the text "Sms sent, status code is: 200".
+
+![SMS Sent](/screenshots/sms-sent.png)
+
+It's done, cheers!
+
+## What's next?
+
+You might also be interested in how to receive message in the app. A new tutorial on this topic will be published soon. Please stay tuned.
