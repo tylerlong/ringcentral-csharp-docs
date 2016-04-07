@@ -6,11 +6,11 @@ This tutorial is based on the tutorial [Install RingCentral C# SDK](/installatio
 
 Launch Xamarin Studio
 
-![Xamarin Studio](screenshots/xamarin-studio.png)
+![Xamarin Studio](/screenshots/xamarin-studio.png)
 
 Press `CMD - O` to open the MyTestApp solution
 
-![Open Test App](screenshots/open-test-app.png)
+![Open Test App](/screenshots/open-test-app.png)
 
 Open "ViewController.cs", Edit it and make the code like this:
 
@@ -80,7 +80,7 @@ namespace MyTestApp
 
 Press `CMD - Enter` to run the app. A simulator will be started. Wait until the app is up and running, check "Application Output" window for text "App is authenticated".
 
-![App Authenticated](screenshots/app-authenticated.png)
+![App Authenticated](/screenshots/app-authenticated.png)
 
 The app itself in simulator is just a blank window because we didn't create any UI elements.
 
