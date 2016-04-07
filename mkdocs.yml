@@ -10,3 +10,4 @@ pages:
 # Xamarin Studio on Mac OS X
 - ['mac/installation.md', 'Xamarin Studio on Mac OS X', 'Installation']
 - ['mac/authentication.md', 'Xamarin Studio on Mac OS X', 'Authentication']
+- ['mac/send-sms.md', 'Xamarin Studio on Mac OS X', 'Authentication']
