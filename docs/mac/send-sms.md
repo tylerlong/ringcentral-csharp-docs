@@ -133,7 +133,7 @@ If you know the receiver's account credentials, it's time to logon that account 
 
 It's done, cheers!
 
-[source code](https://github.com/tylerlong/ringcentral-csharp-tutorials/tree/master/mac/send-sms) for this tutorial is available.
+[Source code](https://github.com/tylerlong/ringcentral-csharp-tutorials/tree/master/mac/send-sms) for this tutorial is available.
 
 ## What's next?
 
