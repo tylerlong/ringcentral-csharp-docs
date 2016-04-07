@@ -9,7 +9,7 @@ Launch Xamarin Studio
 
 ![Xamarin Studio](screenshots/xamarin-studio.png)
 
-Press keyboard shortcut: `Shift + CMD + N` to create a new solution
+Press keyboard shortcut: `Shift - CMD - N` to create a new solution
 
 ![New Solution](screenshots/new-solution.png)
 
@@ -44,6 +44,14 @@ Here we checked "Show pre-release packages" because we want to install the lates
 
 Accept the license of PubnubPCL
 
-![PubnubPCL License](screenshots/pubnubpcl-license)
+![PubnubPCL License](screenshots/pubnubpcl-license.png)
 
-Add some testing code to make sure that RingCentral SDK is added successfully.
+Add `using RingCentral.SDK;` to `ViewController.cs`
+
+![Testing Code](screenshots/one-line-testing-code.png)
+
+Press `CMD - B` to build the project.
+
+![Build Successful](screenshots/build-successful.png)
+
+"Build successful." means RingCentral SDK has been installed successfully.
