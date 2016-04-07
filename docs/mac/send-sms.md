@@ -129,6 +129,8 @@ Enter the phone number, enter the greetings, press the "Send Message" button. Th
 
 ![SMS Sent](/screenshots/sms-sent.png)
 
+If you know the receiver's account credentials, it's time to logon that account with RingCentral app and confirm the message has arrived at its destination.
+
 It's done, cheers!
 
 ## What's next?
