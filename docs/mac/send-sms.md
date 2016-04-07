@@ -12,6 +12,8 @@ In order to complete this tutorial. You need two RingCentral accounts. One for s
 If you only have one account, or you don't want to install the RingCentral app, you can still continue to experiment this tutorial. But you won't be able to tell whether the receiver has received the message.
 
 
+## Experiment
+
 Launch Xamarin Studio
 
 ![Xamarin Studio](/screenshots/xamarin-studio.png)
@@ -38,7 +40,7 @@ How to build UI with XCode Interface Builder is out of the scope of this tutoria
 
 Still in XCode Interface Builder, Create outlets for the two text fields, create an action for the button. Please name the two outlets as `receiverNumberTextField` and `messageTextField`. Please name the action as `SendMessage`. The resulting Objective-C code should be like following:
 
-![Outlets & Action](screenshots/send-message-oc.png)
+![Outlets & Action](/screenshots/send-message-oc.png)
 
 How to create outlets and actions in XCode Interface Builder is out of the scope of this tutorial. There are some wonderful videos from [Youtube](https://www.youtube.com/results?search_query=xcode+outlets+actions).
 
