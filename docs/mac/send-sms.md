@@ -57,4 +57,20 @@ partial void SendMessage (Foundation.NSObject sender)
 }
 ```
 
-Now `CMD - Return` to run the app.
+Now `CMD - Return` to run the app. In the iPhone simulator, click the "Send Message" button mutiple times. Check the "Application Output" window for something like what is shown in the following screenshot.
+
+![Button Clicked](/screenshots/button-clicked.png)
+
+Now we are sure that button are connected correctly to the action method. Let's move on to send SMS!
+
+Update `SendMessage` action method, replace its content with:
+
+```csharp
+var request = new RingCentral.SDK.Http.Request ("/restapi/v1.0/account/~/extension/~/sms",
+	string.Format ("{{ \"text\": \"{0}\", \"from\": {{ \"phoneNumber\": \"{1}\" }}, \"to\": [{{ \"phoneNumber\": \"{2}\" }}]}}",
+		messageTextField.Text, username, receiverNumberTextField.Text));
+var response = platform.Post (request);
+Console.WriteLine("Sms sent, status code is: " + response.GetStatus ());
+```
+
+The code needs a little explanation.
