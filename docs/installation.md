@@ -38,4 +38,12 @@ From Xamarin Studio menu, select "Project -> Add NuGet Packages..."
 
 Search for "RingCentral", be sure to check "Show pre-release packages", check "RingCentral SDK", click "Add Package"
 
-![NuGet RingCentral SDK](screenshots/nuget-ringcentral-sdk)
+![NuGet RingCentral SDK](screenshots/nuget-ringcentral-sdk.png)
+
+Here we checked "Show pre-release packages" because we want to install the latest pre-release version. In the future, we'll merge all the latest features in to the stable release, by then there is no need to install pre-release version.
+
+Accept the license of PubnubPCL
+
+![PubnubPCL License](screenshots/pubnubpcl-license)
+
+Add some testing code to make sure that RingCentral SDK is added successfully.
