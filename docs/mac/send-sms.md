@@ -66,11 +66,43 @@ Now we are sure that button are connected correctly to the action method. Let's 
 Update `SendMessage` action method, replace its content with:
 
 ```csharp
-var request = new RingCentral.SDK.Http.Request ("/restapi/v1.0/account/~/extension/~/sms",
-	string.Format ("{{ \"text\": \"{0}\", \"from\": {{ \"phoneNumber\": \"{1}\" }}, \"to\": [{{ \"phoneNumber\": \"{2}\" }}]}}",
-		messageTextField.Text, username, receiverNumberTextField.Text));
+var requestBody = new Dictionary<string, dynamic> {
+  { "text", messageTextField.Text },
+  { "from", new Dictionary<string, string>{ { "phoneNumber", username } } }, {
+    "to",
+    new List<Dictionary<string, string>> { new Dictionary<string, string> { {
+          "phoneNumber",
+          receiverNumberTextField.Text
+        }
+      }
+    }
+  }
+};
+var jsonBody = Newtonsoft.Json.JsonConvert.SerializeObject (requestBody);
+var request = new RingCentral.SDK.Http.Request ("/restapi/v1.0/account/~/extension/~/sms", jsonBody);
 var response = platform.Post (request);
-Console.WriteLine("Sms sent, status code is: " + response.GetStatus ());
+Console.WriteLine ("Sms sent, status code is: " + response.GetStatus ());
 ```
 
 The code needs a little explanation.
+
+```csharp
+var requestBody = new Dictionary<string, dynamic> {
+  { "text", messageTextField.Text },
+  { "from", new Dictionary<string, string>{ { "phoneNumber", username } } }, {
+    "to",
+    new List<Dictionary<string, string>> { new Dictionary<string, string> { {
+          "phoneNumber",
+          receiverNumberTextField.Text
+        }
+      }
+    }
+  }
+};
+```
+
+Statement above creates the request body. I know you might be wondering: what's the required data structure for request body? Where is the specification?
+
+The specification could be found here: https://developer.ringcentral.com/api-explorer/latest/index.html open the web page, click "Messages" followed by click "Create SMS Message". You will find the model schema for the JSON body right there:
+
+![SMS JSON body schema](/screenshots/sms-schema.png)
