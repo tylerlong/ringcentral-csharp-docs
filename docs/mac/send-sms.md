@@ -22,7 +22,7 @@ Press `CMD - O` to open the MyTestApp solution created in [Authentication](/mac/
 
 ![Open Test App](/screenshots/open-test-app.png)
 
-First of all, make sure you have replaced the following with real credentials
+First of all, make sure to replace the following with real credentials
 
 ![Fake Credentials](/screenshots/fake-credentials.png)
 
@@ -44,4 +44,17 @@ Still in XCode Interface Builder, Create outlets for the two text fields, create
 
 How to create outlets and actions in XCode Interface Builder is out of the scope of this tutorial. There are some wonderful videos from [Youtube](https://www.youtube.com/results?search_query=xcode+outlets+actions).
 
-Now go back to Xamarin Studio.
+Now go back to Xamarin Studio. And review the source code of `ViewController.designer.cs`. There should be some code automatically generated.
+
+![Auto Generated Code](/screenshots/auto-generated-code.png)
+
+Let's edit `ViewController.cs`, add the following code:
+
+```csharp
+partial void SendMessage (Foundation.NSObject sender)
+{
+    Console.WriteLine("Button clicked");
+}
+```
+
+Now `CMD - Return` to run the app.
