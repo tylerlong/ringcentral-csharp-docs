@@ -91,7 +91,7 @@ if (!platform.IsAuthorized ()) {
 }
 ```
 
-The first `if` statement create the SDK object and get the platform singleton.
+The first `if` statement creates the SDK object and gets the platform singleton.
 The second `if` statement does the authentication.
 
 Press `CMD - Enter` to run the app. A simulator will be started. Wait until the app is up and running, check "Application Output" window for text "App is authenticated".
