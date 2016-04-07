@@ -2,6 +2,9 @@
 
 This tutorial demonstrates how to create a new project and install the latest RingCentral C# SDK.
 
+- [Xamarin Studio for Mac](#xamarin-studio-for-mac)
+- [Visual Studio for Windows](#visual-studio-for-windows)
+
 
 ## Xamarin Studio for Mac
 
@@ -55,3 +58,8 @@ Press `CMD - B` to build the project.
 ![Build Successful](screenshots/build-successful.png)
 
 "Build successful." means RingCentral SDK has been installed successfully.
+
+
+## Visual Studio for Windows
+
+Coming soon...
