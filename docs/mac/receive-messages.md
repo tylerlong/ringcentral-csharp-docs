@@ -154,14 +154,14 @@ namespace MyTestApp
 		{
 		}
 
-    private Platform platform;
-    private const string appKey = "appKey";
-    private const string appSecret = "appSecret";
-    private const string username = "username";
-    private const string extension = "extension";
-    private const string password = "password";
-    private const string sandboxServer = "https://platform.devtest.ringcentral.com";
-    // private const string productionServer = "https://platform.ringcentral.com";
+		private Platform platform;
+		private const string appKey = "appKey";
+		private const string appSecret = "appSecret";
+		private const string username = "username";
+		private const string extension = "extension";
+		private const string password = "password";
+		private const string sandboxServer = "https://platform.devtest.ringcentral.com";
+		// private const string productionServer = "https://platform.ringcentral.com";
 
 		private void Authenticate ()
 		{
