@@ -26,14 +26,58 @@ First of all, make sure to replace the following with real credentials
 
 In previous tutorial, we created simple UI and wrote some code to send SMS. In this tutorial we are going to experimenting how to receive messages.
 
-Whenever some one send you a message via RingCentral platform, the message is sent to RingCentral's server instead of your app client. Think about it: how could the app client receive the message as soon as it's available on the server? One way is to check the server again and again. For example, every 5 seconds, the app sends a message to the server: "are there any messages for me?". Most of the time, server will respond "Nope" and the app does nothing. If the server responds with "Yes", the app would send another request the server "give me the latest message" and fetch the message back.
+Whenever some one send you a message via RingCentral platform, the message is sent to RingCentral's server instead of your app client. Think about it: how could the app client receive the message as soon as it's available on the server? One way is to check the server again and again. For example, every 5 seconds, the app sends a message to the server: "are there any messages for me?". Most of the time, server will respond "Nope" and the app does nothing. If the server responds with "Yes", the app would send another request to the server "give me the latest message" and fetch the message back.
 
 The solution described above is not ideal. There are too much traffic between the app and server. If there are thousands of app clients, the server will be brought down by huge amount of traffic. An better approach is to let the server to notify the app client whenever new messages are available. And here comes a new topic from RingCentral API documentation: [Notifications and Subscriptions](https://developer.ringcentral.com/api-docs/latest/index.html#!#Notifications.html).
 
 > There are two strategies of client-service interaction providing data renewal: poll and push. Polling implies that the client periodically queries the server in order to get the updated data. Pushing implies that the server immediately sends notifications to the client on any data update. RingCentral API supports both types of data renewal. However in case of rarely changing data push notifications are evidently more effective, as they reduce client-server traffic, server load and improve user experience by notifying client applications on-the-fly with a minimal delay about important events.
 
+To start receiving push notifications the client application should subscribe for the required events; in this case, for the new messages.
 
+We've learned enough theory up to now. I highly recommend you to read the [API documentation](https://developer.ringcentral.com/api-docs/latest/index.html#!#Notifications.html). I cannot elaborate further in this tutorial because I don't want to duplicate the whole API documentation here. Let me show you some code instead.
 
+```csharp
+// subscribe
+var sub = new RingCentral.Subscription.SubscriptionServiceImplementation() { _platform = platform };
+sub.AddEvent("/restapi/v1.0/account/~/extension/~/message-store");
+sub.Subscribe(ActionOnNotification, null, null);
+
+void ActionOnNotification(object message)
+{
+    Console.WriteLine (message);
+}
+```
+
+Code above is a typical example for how to do subscription. We've subscribed to `message-store` and whenever there are new messages, the method `ActionOnNotification` will be invoked.
+
+Let's try the code in Xamarin Studio. Add the code to `ViewController.cs`:
+
+![Subscribe Code](/screenshots/subscribe-code.png)
+
+`CMD - Enter` to run the application. When it is up and running, send a message to `username` number with another account. The message will be sent to the server, and server will notify our app since we have subscribed. Wait for several seconds and watch the "Application Output" window for the message. It should be something like this:
+
+```
+2016-04-08 10:56:30.700 MyTestApp[4385:48725] [
+  {
+    "uuid": "b2f862e0-632b-4fb2-80ea-d8cbcc0418da",
+    "event": "/restapi/v1.0/account/~/extension/850957020/message-store",
+    "timestamp": "2016-04-08T02:56:30.564Z",
+    "body": {
+      "extensionId": 850957020,
+      "lastUpdated": "2016-04-08T10:56:22.478+08:00",
+      "changes": [
+        {
+          "type": "SMS",
+          "newCount": 1,
+          "updatedCount": 0
+        }
+      ]
+    }
+  },
+  "14600841906208302",
+  "4303989563124995_5e263ba5"
+]
+```
 
 
 [Source code](https://github.com/tylerlong/ringcentral-csharp-tutorials/tree/master/mac/receive-messages) for this tutorial is available.
