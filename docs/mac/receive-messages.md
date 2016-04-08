@@ -26,6 +26,18 @@ First of all, make sure to replace the following with real credentials
 
 In previous tutorial, we created simple UI and wrote some code to send SMS. In this tutorial we are going to experimenting how to receive messages.
 
+First of all, we need to update the UI. We'd like to add a text view to the top, in order to display messages received. As we did before, let's edit the "Main.storyboard" file with XCode Interface Builder:
+
+![Open Interface Builder](/screenshots/open-interface-builder.png)
+
+Update the UI in XCode Interface Builder to make it like below:
+
+![Interface Builder Chat UI](/screenshots/ib-chat-ui.png)
+
+The area with dark background is where we display messages received.
+
+![Send Message UI](/screenshots/send-message-ui.png)
+
 Whenever some one send you a message via RingCentral platform, the message is sent to RingCentral's server instead of your app client. Think about it: how could the app client receive the message as soon as it's available on the server? One way is to check the server again and again. For example, every 5 seconds, the app sends a message to the server: "are there any messages for me?". Most of the time, server will respond "Nope" and the app does nothing. If the server responds with "Yes", the app would send another request to the server "give me the latest message" and fetch the message back.
 
 The solution described above is not ideal. There are too much traffic between the app and server. If there are thousands of app clients, the server will be brought down by huge amount of traffic. An better approach is to let the server to notify the app client whenever new messages are available. And here comes a new topic from RingCentral API documentation: [Notifications and Subscriptions](https://developer.ringcentral.com/api-docs/latest/index.html#!#Notifications.html).
@@ -79,7 +91,40 @@ Let's try the code in Xamarin Studio. Add the code to `ViewController.cs`:
 ]
 ```
 
-The SMS message itself is not included in the notification message! From the notification message, we are unable to get the content of the SMS message received.
+The SMS message itself is not included in the notification message! From the notification message, we are unable to get the content of the SMS message received. In order to get the message content, we also need one more API endpoint: `message-sync`.
+
+`message-sync`, as its name indicates, it's used to synchronize messages between server and clients. Let me elaborate by sample code:
+
+```csharp
+var request = new RingCentral.Http.Request("/restapi/v1.0/account/~/extension/~/message-sync",
+  new List<KeyValuePair<string, string>> {
+    new KeyValuePair<string, string>("dateFrom", DateTime.UtcNow.AddHours(-1).ToString("o")),
+    new KeyValuePair<string, string>("syncType", "FSync"),
+  });
+var response = platform.Get(request);
+var syncToken = response.GetJson().SelectToken("syncInfo.syncToken").ToString();
+```
+
+In the code above, we sent a request to the `message-sync` endpoint together with two query string items: `dateFrom` and `syncType`. `dateFrom` is self-explanatory, it means the start date of the messages. `syncType` has at least two possible values: `FSync` and `ISync`. The former is short for "Full Synchronization", the latter is short for "Incremental Synchronization".
+
+The last line of code: `var syncToken = response.GetJson().SelectToken("syncInfo.syncToken").ToString();` is to extract the `syncToken` from the response. `syncToken` is important because we need it to do incremental synchronization:
+
+```csharp
+var request = new RingCentral.Http.Request("/restapi/v1.0/account/~/extension/~/message-sync",
+  new List<KeyValuePair<string, string>> {
+    new KeyValuePair<string, string>("syncToken", syncToken),
+    new KeyValuePair<string, string>("syncType", "ISync"),
+  });
+var response = platform.Get(request);
+syncToken = response.GetJson().SelectToken("syncInfo.syncToken").ToString();
+
+foreach(var m in ExtractMessages(response.GetJson())) {
+  InvokeOnMainThread(() => {
+    consoleTextView.Text += "\n" + m;
+  });
+}
+```
+
 
 
 [Source code](https://github.com/tylerlong/ringcentral-csharp-tutorials/tree/master/mac/receive-messages) for this tutorial is available.
