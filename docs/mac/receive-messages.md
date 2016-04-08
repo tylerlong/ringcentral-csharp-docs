@@ -54,7 +54,7 @@ Let's try the code in Xamarin Studio. Add the code to `ViewController.cs`:
 
 ![Subscribe Code](/screenshots/subscribe-code.png)
 
-`CMD - Enter` to run the application. When it is up and running, send a message to `username` number with another account. The message will be sent to the server, and server will notify our app since we have subscribed. Wait for several seconds and watch the "Application Output" window for the message. It should be something like this:
+`CMD - Enter` to run the application. When it is up and running, send a message to `username` number with another account. The message will be sent to the server, and server will notify our app since we have subscribed. Wait for several seconds and watch the "Application Output" window for the notification message. It should be something like this:
 
 ```
 2016-04-08 10:56:30.700 MyTestApp[4385:48725] [
@@ -78,6 +78,8 @@ Let's try the code in Xamarin Studio. Add the code to `ViewController.cs`:
   "4303989563124995_5e263ba5"
 ]
 ```
+
+The SMS message itself is not included in the notification message! From the notification message, we are unable to get the content of the SMS message received.
 
 
 [Source code](https://github.com/tylerlong/ringcentral-csharp-tutorials/tree/master/mac/receive-messages) for this tutorial is available.
