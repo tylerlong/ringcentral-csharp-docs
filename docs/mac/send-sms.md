@@ -119,7 +119,7 @@ var response = platform.Post (request);
 Console.WriteLine ("Sms sent, status code is: " + response.GetStatus ());
 ```
 
-Code above are quite self-explanatory: the first statement creates the request object, the second statement post the request to server and get the response object, the final object just prints the status code.
+Code above are quite self-explanatory: the first statement creates the request object, the second statement posts the request to server and get the response object, the final statement just prints the status code.
 
 OK, everything is ready now, let's run the app!
 
