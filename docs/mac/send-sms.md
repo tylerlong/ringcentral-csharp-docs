@@ -137,4 +137,4 @@ It's done, cheers!
 
 ## What's next?
 
-You might also be interested in how to receive message in the app. A new tutorial on this topic will be published soon. Please stay tuned.
+You might also be interested in how to receive messages in the app. If so, please continue to read [Receive Messages](/mac/receive-messages/) tutorial.
