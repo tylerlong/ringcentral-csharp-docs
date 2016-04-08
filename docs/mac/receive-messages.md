@@ -34,13 +34,15 @@ Update the UI in XCode Interface Builder to make it like below:
 
 ![Interface Builder Chat UI](/screenshots/ib-chat-ui.png)
 
-The area with dark background is where we display messages received.
+The area with dark background is where we display messages received. The area is an `UITextView`, and its outlet name is `consoleTextView`. We will reference to this name later, please keep it in your mind.
 
-![Send Message UI](/screenshots/send-message-ui.png)
+Knowledge about XCode Interface Builder and outlets is out of the scope of this tutorial. If you have difficulties with them, you'll find these videos from Youtube are quite helpful: [XCode Interface Builder](https://www.youtube.com/results?search_query=xcode+interface+builder), [Outlets & Actions](https://www.youtube.com/results?search_query=xcode+outlets+actions).
 
-Whenever some one send you a message via RingCentral platform, the message is sent to RingCentral's server instead of your app client. Think about it: how could the app client receive the message as soon as it's available on the server? One way is to check the server again and again. For example, every 5 seconds, the app sends a message to the server: "are there any messages for me?". Most of the time, server will respond "Nope" and the app does nothing. If the server responds with "Yes", the app would send another request to the server "give me the latest message" and fetch the message back.
+Let's move on to receive messages.
 
-The solution described above is not ideal. There are too much traffic between the app and server. If there are thousands of app clients, the server will be brought down by huge amount of traffic. An better approach is to let the server to notify the app client whenever new messages are available. And here comes a new topic from RingCentral API documentation: [Notifications and Subscriptions](https://developer.ringcentral.com/api-docs/latest/index.html#!#Notifications.html).
+Whenever some one send you a message via RingCentral platform, the message is sent to RingCentral's server instead of your app client. Think about it: how could the app client receive the message as soon as it's available on the server? One way is to check the server again and again, we call this way "pull". For example, every 5 seconds, the app sends a message to the server: "are there any messages for me?". Most of the time, server will respond "Nope" and the app does nothing. If the server responds with "Yes", the app would send another request to the server "give me the latest message" and fetch the message back.
+
+The solution described above is not ideal. There are too much traffic between the app and server. If there are thousands of app clients, the server will be brought down by huge amount of traffic. An better approach is to let the server to notify the app client whenever new messages are available, we call this approach "push". And here comes a new topic from RingCentral API documentation: [Notifications and Subscriptions](https://developer.ringcentral.com/api-docs/latest/index.html#!#Notifications.html).
 
 > There are two strategies of client-service interaction providing data renewal: poll and push. Polling implies that the client periodically queries the server in order to get the updated data. Pushing implies that the server immediately sends notifications to the client on any data update. RingCentral API supports both types of data renewal. However in case of rarely changing data push notifications are evidently more effective, as they reduce client-server traffic, server load and improve user experience by notifying client applications on-the-fly with a minimal delay about important events.
 
