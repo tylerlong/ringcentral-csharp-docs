@@ -7,8 +7,12 @@ pages:
 # Overview:
 - ['index.md', 'Overview', 'RingCentral C# SDK']
 - ['requirements.md', 'Overview', 'System Requirements']
+
 # Xamarin Studio on Mac OS X
 - ['mac/installation.md', 'Xamarin Studio on Mac OS X', 'Installation']
 - ['mac/authentication.md', 'Xamarin Studio on Mac OS X', 'Authentication']
 - ['mac/send-sms.md', 'Xamarin Studio on Mac OS X', 'Send SMS']
 - ['mac/receive-messages.md', 'Xamarin Studio on Mac OS X', 'Receive Messages']
+
+# Visual Studio on Windows
+- ['win/installation.md', 'Visual Studio on Windows', 'Installation']
