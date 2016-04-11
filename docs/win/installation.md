@@ -16,3 +16,11 @@ Install-Package RingCentralSDK -Pre
 We installed the prerelease version (`-Pre`). This is because the prerelease version contains incompatible major changes to the stable release. We want to stay on the cutting edge.
 
 As soon as we release RingCentral C# SDK 1.0.0, you will be recommended to install the stable release instead. Please keep this in your mind.
+
+We added a line of code to the C# project:
+
+```csharp
+private RingCentral.SDK.Platform platform = null;
+```
+
+The code above compiled successfully, which proved that we have installed the RingCentral C# SDK via NuGet successfully.
